@@ -5,7 +5,10 @@ import { mockDataProductsStore } from '@/mockData';
 export default function Home() {
   return (
     <div className={styles.home}>
-      <PlacesList places={mockDataProductsStore} />
+      <div className={styles.category}>
+        <h2 className={styles.categoryTitle}>Продукты</h2>
+        <PlacesList places={mockDataProductsStore} />
+      </div>
     </div>
   );
 }
