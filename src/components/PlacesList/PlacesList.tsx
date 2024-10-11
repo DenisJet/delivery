@@ -55,24 +55,6 @@ export const useSliderManagement = () => {
     return () => observer.disconnect();
   }, []);
 
-  const swiperBreakpoints = {
-    360: {
-      spaceBetween: 4,
-    },
-    540: {
-      spaceBetween: 20,
-      slidesPerView: 3,
-    },
-    690: {
-      slidesPerView: 4,
-      slidesPerGroup: 3,
-    },
-    990: {
-      slidesPerView: 5,
-      slidesPerGroup: 4,
-    },
-  };
-
   const bindRefsToNavigation = (swiper: SwiperTypes) => {
     swiperRef.current = swiper;
     if (swiper.params.navigation && typeof swiper.params.navigation !== 'boolean') {
@@ -85,11 +67,11 @@ export const useSliderManagement = () => {
     }
   };
 
-  return { initialized, prevRef, nextRef, swiperBreakpoints, bindRefsToNavigation };
+  return { initialized, prevRef, nextRef, bindRefsToNavigation };
 };
 
 export default function PlacesList({ places }: PlacesListProps) {
-  const { initialized, prevRef, nextRef, swiperBreakpoints, bindRefsToNavigation } = useSliderManagement();
+  const { initialized, prevRef, nextRef, bindRefsToNavigation } = useSliderManagement();
 
   return (
     <div className={styles['slider']}>
@@ -105,8 +87,6 @@ export default function PlacesList({ places }: PlacesListProps) {
               }}
               onBeforeInit={bindRefsToNavigation}
               slidesPerView={'auto'}
-              //slidesPerGroup={3}
-              //breakpoints={swiperBreakpoints}
             >
               {places.map((place) => {
                 return (
