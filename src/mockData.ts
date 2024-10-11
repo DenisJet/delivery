@@ -29,6 +29,36 @@ export const mockDataProductsStore = [
     imageUrl: 'https://loremflickr.com/320/240/',
     address: 'Пролетарская 38',
   },
+  {
+    id: 6,
+    name: 'Магазин Равис',
+    imageUrl: 'https://loremflickr.com/320/240/',
+    address: 'Пролетарская 38',
+  },
+  {
+    id: 7,
+    name: 'Магазин Равис',
+    imageUrl: 'https://loremflickr.com/320/240/',
+    address: 'Пролетарская 38',
+  },
+  {
+    id: 8,
+    name: 'Магазин Равис',
+    imageUrl: 'https://loremflickr.com/320/240/',
+    address: 'Пролетарская 38',
+  },
+  {
+    id: 9,
+    name: 'Магазин Равис',
+    imageUrl: 'https://loremflickr.com/320/240/',
+    address: 'Пролетарская 38',
+  },
+  {
+    id: 10,
+    name: 'Магазин Равис',
+    imageUrl: 'https://loremflickr.com/320/240/',
+    address: 'Пролетарская 38',
+  },
 ];
 
 export const mockDataCategories = [
