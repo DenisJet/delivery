@@ -1,17 +1,28 @@
-import PlacesList from '@/components/PlacesList/PlacesList';
+import PlacesList, { IPlace } from '@/components/PlacesList/PlacesList';
 import styles from './page.module.css';
-import { mockDataProductsStore } from '@/mockData';
+import { mockDataCategories } from '@/mockData';
 import { getAllPlacesFromFb } from '@/api/firebaseOperations/getAllPlacesFromFb';
 
 export default async function Home() {
-  const places = await getAllPlacesFromFb();
+  const allPlaces = await getAllPlacesFromFb();
+  const categories = mockDataCategories;
 
   return (
     <div className={styles.home}>
-      <div className={styles.category}>
-        <h2 className={styles.categoryTitle}>Продукты</h2>
-        <PlacesList places={places ? Object.values(places) : []} />
-      </div>
+      {categories.map((category) => {
+        const places = allPlaces
+          ? Object.values(allPlaces).filter((place: IPlace) => place.category === category.category)
+          : [];
+
+        return (
+          places.length > 0 && (
+            <div className={styles.category} key={category.id}>
+              <h2 className={styles.categoryTitle}>{category.name}</h2>
+              <PlacesList places={places} />
+            </div>
+          )
+        );
+      })}
     </div>
   );
 }

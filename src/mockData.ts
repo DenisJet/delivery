@@ -64,7 +64,8 @@ export const mockDataProductsStore = [
 export const mockDataCategories = [
   {
     id: 1,
-    name: 'Продукты',
+    name: 'Продуктовые магазины',
+    category: 'products-store',
     image: 'https://loremflickr.com/320/240/',
   },
   {
@@ -80,6 +81,7 @@ export const mockDataCategories = [
   {
     id: 4,
     name: 'Хоз. магазины',
+    category: 'hardware-store',
     image: 'https://loremflickr.com/320/240/',
   },
   {
