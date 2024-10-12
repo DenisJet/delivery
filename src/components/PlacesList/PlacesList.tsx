@@ -15,8 +15,8 @@ export interface IPlace {
   name: string;
   imageUrl?: string;
   address?: string;
-  //slug: string;
-  //category: string;
+  slug: string;
+  category: string;
   //tags?: string[];
 }
 
