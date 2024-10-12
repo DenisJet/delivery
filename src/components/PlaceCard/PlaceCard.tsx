@@ -1,12 +1,13 @@
 import Image from 'next/image';
 import styles from './PlaceCard.module.css';
-import { IPlace } from '../PlacesList/PlacesList';
+import Link from 'next/link';
+import { IPlace } from '@/interfaces/place.interface';
 
 export default function PlaceCard({ place }: { place: IPlace }) {
   const DEFAULT_IMAGE_URL = '/images/placeholder.png';
 
   return (
-    <div className={styles.place}>
+    <Link href={`/${place.slug}`} className={styles.place}>
       <Image
         width={125}
         height={75}
@@ -16,6 +17,6 @@ export default function PlaceCard({ place }: { place: IPlace }) {
       />
       <p className={styles.placeName}>{place.name}</p>
       <span className={styles.placeAddress}>{place.address}</span>
-    </div>
+    </Link>
   );
 }

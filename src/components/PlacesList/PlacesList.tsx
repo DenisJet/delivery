@@ -9,16 +9,7 @@ import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import PlaceCard from '../PlaceCard/PlaceCard';
-
-export interface IPlace {
-  id: number;
-  name: string;
-  imageUrl?: string;
-  address?: string;
-  slug: string;
-  category: string;
-  //tags?: string[];
-}
+import { IPlace } from '@/interfaces/place.interface';
 
 interface PlacesListProps {
   places: IPlace[];

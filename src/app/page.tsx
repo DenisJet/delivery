@@ -1,7 +1,8 @@
-import PlacesList, { IPlace } from '@/components/PlacesList/PlacesList';
+import PlacesList from '@/components/PlacesList/PlacesList';
 import styles from './page.module.css';
 import { mockDataCategories } from '@/mockData';
 import { getAllPlacesFromFb } from '@/api/firebaseOperations/getAllPlacesFromFb';
+import { IPlace } from '@/interfaces/place.interface';
 
 export default async function Home() {
   const allPlaces = await getAllPlacesFromFb();
