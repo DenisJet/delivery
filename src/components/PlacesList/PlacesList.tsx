@@ -8,12 +8,16 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import PlaceCard from '../PlaceCard/PlaceCard';
 
 export interface IPlace {
   id: number;
   name: string;
-  imageUrl: string;
-  address: string;
+  imageUrl?: string;
+  address?: string;
+  //slug: string;
+  //category: string;
+  //tags?: string[];
 }
 
 interface PlacesListProps {
@@ -91,17 +95,7 @@ export default function PlacesList({ places }: PlacesListProps) {
               {places.map((place) => {
                 return (
                   <SwiperSlide key={place.id} className={styles['swiper-slide']}>
-                    <div className={styles.place}>
-                      <Image
-                        width={125}
-                        height={75}
-                        src={place.imageUrl}
-                        alt={place.name}
-                        className={styles.placeImage}
-                      />
-                      <p className={styles.placeName}>{place.name}</p>
-                      <span className={styles.placeAddress}>{place.address}</span>
-                    </div>
+                    <PlaceCard place={place} />
                   </SwiperSlide>
                 );
               })}

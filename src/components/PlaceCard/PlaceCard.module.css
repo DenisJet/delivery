@@ -1,0 +1,31 @@
+.place {
+  padding: 0 5px;
+  width: max-content;
+}
+
+.placeImage {
+  border-radius: 20px;
+}
+
+.placeName {
+  padding: 0;
+  font-size: 14px;
+}
+
+.placeAddress {
+  font-weight: 300;
+  font-size: 12px;
+}
+
+.placeImage {
+  width: 125px;
+  height: 75px;
+  object-fit: cover;
+}
+
+@media (min-width: 540px) {
+  .placeImage {
+    width: 200px;
+    height: 125px;
+  }
+}

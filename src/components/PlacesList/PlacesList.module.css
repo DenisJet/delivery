@@ -47,33 +47,9 @@
   width: fit-content!important;
 }
 
-.place {
-  padding: 0 5px;
-  width: max-content;
-}
-
-.placeImage {
-  border-radius: 20px;
-}
-
-.placeName {
-  padding: 0;
-  font-size: 14px;
-}
-
-.placeAddress {
-  font-weight: 300;
-  font-size: 12px;
-}
-
 @media (min-width: 540px) {
   .slider__button-prev,
   .slider__button-next {
     display: flex;
-  }
-
-  .placeImage {
-    width: 200px;
-    height: 125px;
   }
 }
