@@ -15,11 +15,17 @@ interface PlacesListProps {
   places: IPlace[];
 }
 
-export const useSliderManagement = () => {
+export const useSliderManagement = (places: IPlace[]) => {
   const [initialized, setInitialized] = useState<boolean>(false);
   const prevRef = useRef<HTMLButtonElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
   const swiperRef = useRef<SwiperTypes | null>(null);
+
+  useEffect(() => {
+    if (places.length > 0) {
+      setInitialized(true);
+    }
+  }, [places]);
 
   useEffect(() => {
     const reinitializeSwiper = () => {
@@ -35,19 +41,6 @@ export const useSliderManagement = () => {
     return () => {
       window.removeEventListener('resize', reinitializeSwiper);
     };
-  }, []);
-
-  useEffect(() => {
-    const observer = new MutationObserver(() => {
-      if (prevRef.current && nextRef.current) {
-        setInitialized(true);
-        observer.disconnect();
-      }
-    });
-
-    observer.observe(document.body, { childList: true, subtree: true });
-
-    return () => observer.disconnect();
   }, []);
 
   const bindRefsToNavigation = (swiper: SwiperTypes) => {
@@ -66,7 +59,7 @@ export const useSliderManagement = () => {
 };
 
 export default function PlacesList({ places }: PlacesListProps) {
-  const { initialized, prevRef, nextRef, bindRefsToNavigation } = useSliderManagement();
+  const { initialized, prevRef, nextRef, bindRefsToNavigation } = useSliderManagement(places);
 
   return (
     <div className={styles['slider']}>
