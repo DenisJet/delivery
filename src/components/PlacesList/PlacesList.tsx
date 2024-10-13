@@ -1,6 +1,5 @@
 'use client';
 import styles from './PlacesList.module.css';
-import Image from 'next/image';
 import { useRef, useEffect, useState } from 'react';
 import { Swiper as SwiperTypes } from 'swiper/types';
 import { ArrowIcon } from './arrow-icon/ArrowIcon';
