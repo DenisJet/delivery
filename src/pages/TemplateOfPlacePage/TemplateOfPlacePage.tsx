@@ -14,18 +14,21 @@ export default function TemplateOfPlacePage({ place }: { place: IPlacePrice }) {
         const products = place.products?.filter((product) => product.category === subCategory);
 
         return (
-          <div className={styles.productList} key={subCategory}>
-            {products &&
-              products.map((product) => {
+          products &&
+          products.length > 0 && (
+            <div className={styles.category} key={subCategory}>
+              <h3 className={styles.categoryTitle}>{subCategory}</h3>
+              {products.map((product) => {
                 return (
                   <div className={styles.productCard} key={product.name}>
-                    <h3>{product.name}</h3>
+                    <h4>{product.name}</h4>
                     <p>{product.price}</p>
                     <p>{product.quantity}</p>
                   </div>
                 );
               })}
-          </div>
+            </div>
+          )
         );
       })}
     </div>
