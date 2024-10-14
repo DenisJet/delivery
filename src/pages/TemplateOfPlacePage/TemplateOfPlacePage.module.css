@@ -1,3 +1,12 @@
 .place {
   padding-top: 20px;
 }
+
+.placeName {
+  padding: 0 10px;
+  margin-bottom: 20px;
+}
+
+.categoryTitle {
+  padding: 0 10px;
+}

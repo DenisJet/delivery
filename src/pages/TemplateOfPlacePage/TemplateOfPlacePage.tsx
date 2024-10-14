@@ -1,6 +1,7 @@
 import { IPlacePrice } from '@/interfaces/place.interface';
 import styles from './TemplateOfPlacePage.module.css';
 import { categories } from '@/mockData';
+import ProductsList from '@/components/ProductsList/ProductsList';
 
 export default function TemplateOfPlacePage({ place }: { place: IPlacePrice }) {
   const subCategories = categories.find((category) => category.name === place?.category)?.subCategories;
@@ -9,7 +10,7 @@ export default function TemplateOfPlacePage({ place }: { place: IPlacePrice }) {
 
   return (
     <div className={styles.place}>
-      <h2>{place.name}</h2>
+      <h2 className={styles.placeName}>{place.name}</h2>
       {subCategories?.map((subCategory) => {
         const products = place.products?.filter((product) => product.category === subCategory);
 
@@ -18,15 +19,7 @@ export default function TemplateOfPlacePage({ place }: { place: IPlacePrice }) {
           products.length > 0 && (
             <div className={styles.category} key={subCategory}>
               <h3 className={styles.categoryTitle}>{subCategory}</h3>
-              {products.map((product) => {
-                return (
-                  <div className={styles.productCard} key={product.name}>
-                    <h4>{product.name}</h4>
-                    <p>{product.price}</p>
-                    <p>{product.quantity}</p>
-                  </div>
-                );
-              })}
+              <ProductsList products={products} />
             </div>
           )
         );
