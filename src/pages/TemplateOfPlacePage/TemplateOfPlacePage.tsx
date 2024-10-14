@@ -1,10 +1,11 @@
 import { IPlacePrice } from '@/interfaces/place.interface';
+import styles from './TemplateOfPlacePage.module.css';
 
 export default function TemplateOfPlacePage({ place }: { place: IPlacePrice }) {
   if (!place) return;
 
   return (
-    <div>
+    <div className={styles.place}>
       <h2>{place.name}</h2>
       {place.products?.map((product) => {
         return (

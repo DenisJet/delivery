@@ -1,25 +1,28 @@
 export interface IPlace {
   id: number;
   name: string;
+  slug: string;
   imageUrl?: string;
   address?: string;
-  slug: string;
   category?: string;
   tags?: string[];
 }
 
 export interface IProduct {
   name: string;
-  description?: string;
   price: string;
-  oldPrice?: string;
   quantity: string;
+  oldPrice?: string;
+  description?: string;
   category?: string;
   imageUrl?: string;
+  tags?: string[];
 }
 
 export interface IPlacePrice {
   slug: string;
   name: string;
+  address?: string;
+  description?: string;
   products?: IProduct[];
 }
