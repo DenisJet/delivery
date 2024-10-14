@@ -1,5 +1,6 @@
 import { IPlacePrice } from '@/interfaces/place.interface';
 import styles from './TemplateOfPlacePage.module.css';
+import { categories } from '@/mockData';
 
 export default function TemplateOfPlacePage({ place }: { place: IPlacePrice }) {
   if (!place) return;
