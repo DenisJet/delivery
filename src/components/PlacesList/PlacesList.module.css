@@ -23,23 +23,18 @@
   border: none;
 }
 
-.slider__button-next {
-  right: 5px;
-}
-
-
 .slider__button-prev:disabled,
 .slider__button-next:disabled {  
   display: none;
 }
 
 .slider__button-prev {
-  left: 0;
+  left: 25px;
   translate: -50% -50%;
 }
 
 .slider__button-next {
-  right: 0;
+  right: 20px;
   translate: 50% -50%;
 }
 
