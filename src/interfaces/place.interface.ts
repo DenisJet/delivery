@@ -22,6 +22,7 @@ export interface IProduct {
 export interface IPlacePrice {
   slug: string;
   name: string;
+  category: string;
   address?: string;
   description?: string;
   products?: IProduct[];
