@@ -3,10 +3,6 @@
   width: max-content;
 }
 
-.placeImage {
-  border-radius: 20px;
-}
-
 .placeName {
   font-size: 14px;
   padding: 0 5px;
@@ -19,6 +15,7 @@
 }
 
 .placeImage {
+  border-radius: 20px;
   width: 125px;
   height: 75px;
   object-fit: cover;

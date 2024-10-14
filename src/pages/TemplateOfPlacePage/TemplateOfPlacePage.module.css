@@ -4,9 +4,14 @@
 
 .placeName {
   padding: 0 10px;
+  margin-bottom: 15px;
+}
+
+.category {
   margin-bottom: 20px;
 }
 
 .categoryTitle {
   padding: 0 10px;
+  margin-bottom: 10px;
 }

@@ -68,10 +68,10 @@ export default function ProductsList({ products }: ProductsListProps) {
           {initialized && (
             <Swiper
               className={styles['swiper']}
-              spaceBetween={10}
+              spaceBetween={0}
               breakpoints={{
                 900: {
-                  spaceBetween: 20,
+                  spaceBetween: 5,
                 },
               }}
               modules={[Navigation]}

@@ -1,0 +1,37 @@
+.product {
+  width: max-content;
+  background-color: var(--backGroundColor);
+  border-radius: 20px;
+  margin: 0 5px;
+}
+
+.productName {
+  font-size: 14px;
+  padding: 0 5px;
+}
+
+.productPrice {
+  font-weight: 500;
+  font-size: 18px;
+  padding: 0 5px;
+}
+
+.productQuantity {
+  font-size: 12px;
+  padding: 0 5px;
+  
+}
+
+.productImage {
+  border-radius: 20px;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+@media (min-width: 540px) {
+  .productImage {
+    width: 100px;
+    height: 100px;
+  }
+}
