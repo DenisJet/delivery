@@ -2,6 +2,7 @@
   width: max-content;
   background-color: var(--backGroundColor);
   border-radius: 20px;
+  padding-bottom: 10px;
   margin: 0 5px;
 }
 
@@ -19,7 +20,11 @@
 .productQuantity {
   font-size: 12px;
   padding: 0 5px;
-  
+  margin-bottom: 30px;
+}
+
+.addButton {
+  display: block;
 }
 
 .productImage {

@@ -16,7 +16,10 @@ export default function ProductCard({ product }: { product: IProduct }) {
       />
       <p className={styles.productPrice}>{product.price} p</p>
       <p className={styles.productName}>{product.name}</p>
-      <span className={styles.productQuantity}>{product.quantity}</span>
+      <p className={styles.productQuantity}>{product.quantity}</p>
+      <button className={styles.addButton} type='button'>
+        +
+      </button>
     </div>
   );
 }
