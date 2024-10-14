@@ -1,5 +1,5 @@
 .place {
-  padding: 0 5px;
+  padding: 0 10px;
   width: max-content;
 }
 
@@ -8,13 +8,14 @@
 }
 
 .placeName {
-  padding: 0;
   font-size: 14px;
+  padding: 0 5px;
 }
 
 .placeAddress {
   font-weight: 300;
   font-size: 12px;
+  padding: 0 5px;
 }
 
 .placeImage {
