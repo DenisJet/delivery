@@ -7,8 +7,8 @@ export default function Header() {
       <Link href='/' className={styles.logo}>
         LOGO
       </Link>
-      <div className={styles.location}>Адрес доставки</div>
       <div className={styles.search}>Поиск</div>
+      <div className={styles.cart}>Корзина</div>
     </div>
   );
 }

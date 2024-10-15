@@ -1,11 +1,13 @@
 .header {
   padding: 10px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   gap: 8px;
   width: 100%;
   max-width: 1440px;
+  border-bottom: 1px solid var(--grayColor);
   margin-left: auto;
   margin-right: auto;
 }
@@ -13,8 +15,5 @@
 @media screen and (width > 540px) {
   .header {
     padding: 20px;
-    flex-direction: row;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--grayColor);
   }
 }
