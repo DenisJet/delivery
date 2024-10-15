@@ -12,6 +12,16 @@
   margin-right: auto;
 }
 
+.cart {
+  position: relative;
+}
+
+.cartCount {
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+}
+
 @media screen and (width > 540px) {
   .header {
     padding: 20px;
