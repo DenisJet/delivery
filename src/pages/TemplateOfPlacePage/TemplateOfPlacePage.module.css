@@ -2,9 +2,15 @@
   padding-top: 20px;
 }
 
+.header {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
 .placeName {
   padding: 0 10px;
-  margin-bottom: 15px;
 }
 
 .category {

@@ -38,6 +38,10 @@
   display: flex;
   flex-direction: row;
   user-select: none;
+  background-color: white;
+  margin: 0 10px;
+  border-radius: 20px;
+  align-items: center;
 }
 
 .addButton,
