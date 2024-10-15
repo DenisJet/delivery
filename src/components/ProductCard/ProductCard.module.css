@@ -34,9 +34,26 @@
   object-fit: cover;
 }
 
+.productButtons {
+  display: flex;
+  flex-direction: row;
+  user-select: none;
+}
+
+.addButton,
+.removeButton {
+  border: none;
+  border-radius: 20px;
+  background-color: transparent;
+  width: 100%;
+  font-size: 22px;
+  cursor: pointer;
+  user-select: none;
+}
+
 @media (min-width: 540px) {
   .productImage {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
   }
 }
