@@ -13,13 +13,16 @@
 }
 
 .cart {
-  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--grayColor);
+  padding: 5px 10px;
+  border-radius: 20px;
 }
 
 .cartCount {
-  position: absolute;
-  bottom: -5px;
-  right: -5px;
+  
 }
 
 @media screen and (width > 540px) {

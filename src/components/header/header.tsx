@@ -3,11 +3,11 @@ import styles from './Header.module.css';
 import Image from 'next/image';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
-import { getTotalProductCount } from '@/helpers/helpers';
+import { getTotalCartValue, getTotalProductCount } from '@/helpers/helpers';
 
 export default function Header() {
   const cart = useSelector((state: RootState) => state.cart);
-  const totalCount = getTotalProductCount(cart);
+  const totalPrice = getTotalCartValue(cart);
 
   return (
     <div className={styles.header}>
@@ -16,8 +16,8 @@ export default function Header() {
       </Link>
       <div className={styles.search}>Поиск</div>
       <div className={styles.cart}>
-        <Image src='/images/shoppingbasket.svg' alt='корзина' width={30} height={30} />
-        <div className={styles.cartCount}>{totalCount}</div>
+        <Image src='/images/shoppingbasket.svg' alt='корзина' width={25} height={25} />
+        <div className={styles.cartCount}>{totalPrice} ₽</div>
       </div>
     </div>
   );
