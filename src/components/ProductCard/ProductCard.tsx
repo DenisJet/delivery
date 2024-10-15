@@ -1,18 +1,36 @@
 import Image from 'next/image';
 import styles from './ProductCard.module.css';
 import { IProduct } from '@/interfaces/place.interface';
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '@/store/store';
+import { useParams } from 'next/navigation';
+import { addItem, removeItem } from '@/store/cart.slice'; // Импортируйте действия
 
 export default function ProductCard({ product }: { product: IProduct }) {
-  const [counter, setCounter] = useState(0);
+  const cart = useSelector((state: RootState) => state.cart);
+  const params = useParams();
+  const storeName = params?.slug as string;
+  const count = cart.stores
+    .find((store) => store.name === storeName)
+    ?.cart.find((item) => item.product.name === product.name)?.count;
+
+  const dispatch = useDispatch();
   const DEFAULT_IMAGE_URL = '/images/placeholder.png';
+
+  const handleAddItem = () => {
+    dispatch(addItem({ storeName, product }));
+  };
+
+  const handleRemoveItem = () => {
+    dispatch(removeItem({ storeName, product }));
+  };
 
   return (
     <div className={styles.product}>
       <Image
         width={75}
         height={75}
-        src={product.imageUrl ? product.imageUrl : DEFAULT_IMAGE_URL}
+        src={product.imageUrl || DEFAULT_IMAGE_URL}
         alt={product.name}
         className={styles.productImage}
       />
@@ -20,15 +38,15 @@ export default function ProductCard({ product }: { product: IProduct }) {
       <p className={styles.productName}>{product.name}</p>
       <p className={styles.productQuantity}>{product.quantity}</p>
       <div className={styles.productButtons}>
-        {counter > 0 && (
+        {count && count > 0 && (
           <>
-            <button onClick={() => setCounter(counter - 1)} className={styles.removeButton} type='button'>
+            <button onClick={handleRemoveItem} className={styles.removeButton} type='button'>
               -
             </button>
-            <div>{counter}</div>{' '}
+            <div>{count}</div>
           </>
         )}
-        <button onClick={() => setCounter(counter + 1)} className={styles.addButton} type='button'>
+        <button onClick={handleAddItem} className={styles.addButton} type='button'>
           +
         </button>
       </div>
