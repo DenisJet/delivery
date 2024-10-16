@@ -24,11 +24,14 @@ export const cartSlice = createSlice({
     removeStore: (state, action: PayloadAction<string>) => {
       state.stores = state.stores.filter((store) => store.name !== action.payload);
     },
-    addItem: (state, action: PayloadAction<{ storeName: string; product: IProduct }>) => {
-      const store = state.stores.find((store) => store.name === action.payload.storeName);
+    addItem: (state, action: PayloadAction<{ product: IProduct }>) => {
+      const store = state.stores.find((store) => store.name === action.payload.product.storeName);
 
       if (!store) {
-        state.stores.push({ name: action.payload.storeName, cart: [{ product: action.payload.product, count: 1 }] });
+        state.stores.push({
+          name: action.payload.product.storeName,
+          cart: [{ product: action.payload.product, count: 1 }],
+        });
         return;
       }
 
@@ -40,8 +43,8 @@ export const cartSlice = createSlice({
         product.count += 1;
       }
     },
-    removeItem: (state, action: PayloadAction<{ storeName: string; product: IProduct }>) => {
-      const store = state.stores.find((store) => store.name === action.payload.storeName);
+    removeItem: (state, action: PayloadAction<{ product: IProduct }>) => {
+      const store = state.stores.find((store) => store.name === action.payload.product.storeName);
       if (store) {
         const productIndex = store.cart.findIndex((item) => item.product.name === action.payload.product.name);
         if (productIndex !== -1) {

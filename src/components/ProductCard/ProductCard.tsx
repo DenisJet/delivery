@@ -3,13 +3,11 @@ import styles from './ProductCard.module.css';
 import { IProduct } from '@/interfaces/place.interface';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
-import { useParams } from 'next/navigation';
-import { addItem, removeItem } from '@/store/cart.slice'; // Импортируйте действия
+import { addItem, removeItem } from '@/store/cart.slice';
 
 export default function ProductCard({ product }: { product: IProduct }) {
   const cart = useSelector((state: RootState) => state.cart);
-  const params = useParams();
-  const storeName = params?.slug as string;
+  const storeName = product.storeName;
   const count = cart.stores
     .find((store) => store.name === storeName)
     ?.cart.find((item) => item.product.name === product.name)?.count;
@@ -18,11 +16,11 @@ export default function ProductCard({ product }: { product: IProduct }) {
   const DEFAULT_IMAGE_URL = '/images/placeholder.png';
 
   const handleAddItem = () => {
-    dispatch(addItem({ storeName, product }));
+    dispatch(addItem({ product }));
   };
 
   const handleRemoveItem = () => {
-    dispatch(removeItem({ storeName, product }));
+    dispatch(removeItem({ product }));
   };
 
   return (
