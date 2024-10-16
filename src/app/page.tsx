@@ -4,7 +4,7 @@ import { categories } from '@/mockData';
 import { getAllPlacesFromFb } from '@/api/firebaseOperations/getAllPlacesFromFb';
 import { IPlace } from '@/interfaces/place.interface';
 
-export default async function Home() {
+export default async function HomePage() {
   const allPlaces = await getAllPlacesFromFb();
 
   return (

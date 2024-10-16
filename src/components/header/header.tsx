@@ -15,10 +15,10 @@ export default function Header() {
         LOGO
       </Link>
       <div className={styles.search}>Поиск</div>
-      <div className={styles.cart}>
+      <Link href='/cart' className={styles.cart}>
         <Image src='/images/shoppingbasket.svg' alt='корзина' width={25} height={25} />
         <div className={styles.cartCount}>{totalPrice} ₽</div>
-      </div>
+      </Link>
     </div>
   );
 }
