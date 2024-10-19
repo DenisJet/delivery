@@ -1,6 +1,7 @@
 .place {
   padding: 0 10px;
   width: max-content;
+  user-select: none;
 }
 
 .placeName {

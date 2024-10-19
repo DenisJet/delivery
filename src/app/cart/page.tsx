@@ -5,12 +5,12 @@ import { useSelector } from 'react-redux';
 import styles from './page.module.css';
 import { getTotalCartValue } from '@/helpers/helpers';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function CartPage() {
   const [activeCart, setActiveCart] = useState('');
-
   const cart = useSelector((state: RootState) => state.cart);
-
   const totalPrice = getTotalCartValue(cart);
 
   useEffect(() => {
@@ -19,7 +19,12 @@ export default function CartPage() {
 
   return (
     <div className={styles.cart}>
-      <h2 className={styles.cartTitle}>Корзина</h2>
+      <div className={styles.header}>
+        <Link className={styles.link} href='/'>
+          <Image src='/images/arrowback.svg' width={30} height={30} alt='назад' />
+        </Link>
+        <h2 className={styles.cartTitle}>Корзина</h2>
+      </div>
       <div className={styles.cartTabs}>
         {cart.stores.length > 0
           ? cart.stores.map((store) => {
