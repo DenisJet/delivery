@@ -12,7 +12,7 @@ export default function Header() {
   return (
     <div className={styles.header}>
       <Link href='/' className={styles.logo}>
-        LOGO
+        <span>Delivery</span>Hub
       </Link>
       <div className={styles.search}>Поиск</div>
       <Link href='/cart' className={styles.cart}>

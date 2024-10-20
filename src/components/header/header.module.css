@@ -12,6 +12,14 @@
   margin-right: auto;
 }
 
+.logo {
+  font-weight: 700;
+}
+
+.logo span {
+  color: var(--primaryColor);
+}
+
 .cart {
   display: flex;
   align-items: center;
