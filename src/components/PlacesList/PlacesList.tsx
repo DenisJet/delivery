@@ -67,12 +67,6 @@ export default function PlacesList({ places }: PlacesListProps) {
           {initialized && (
             <Swiper
               className={styles['swiper']}
-              spaceBetween={10}
-              breakpoints={{
-                900: {
-                  spaceBetween: 20,
-                },
-              }}
               modules={[Navigation]}
               navigation={{
                 prevEl: prevRef.current,

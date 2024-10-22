@@ -1,18 +1,21 @@
 .place {
-  padding: 0 10px;
+  padding: 0 5px;
   width: max-content;
   user-select: none;
+  margin: 0 5px;
 }
 
 .placeName {
   font-size: 14px;
   padding: 0 5px;
+  margin: 0 5px;
 }
 
 .placeAddress {
   font-weight: 300;
   font-size: 12px;
   padding: 0 5px;
+  margin: 0 5px;
 }
 
 .placeImage {
@@ -23,6 +26,21 @@
 }
 
 @media (min-width: 540px) {
+  .place {
+    padding: 0 5px;
+    margin: 0 10px;
+  }
+  
+  .placeName {
+    padding: 0 5px;
+    margin: 0 10px;
+  }
+  
+  .placeAddress {
+    padding: 0 5px;
+    margin: 0 10px;
+  }
+
   .placeImage {
     width: 200px;
     height: 125px;
