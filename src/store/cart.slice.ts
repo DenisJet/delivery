@@ -55,6 +55,7 @@ export const cartSlice = createSlice({
             product.count -= 1;
           }
         }
+        if (store.cart.length === 0) state.stores = state.stores.filter((item) => item.name !== store.name);
       }
     },
   },
