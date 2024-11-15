@@ -1,5 +1,7 @@
 .product {
-  width: max-content;
+  position: relative;
+  width: 115px;
+  height: 250px;
   background-color: var(--backGroundColor);
   border-radius: 20px;
   padding-bottom: 10px;
@@ -30,17 +32,21 @@
 
 .productImage {
   border-radius: 20px;
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 115px;
   object-fit: cover;
 }
 
 .productButtons {
+  position: absolute;
+  bottom: 10px;
+  width: 90%;
+  height: 30px;
   display: flex;
   flex-direction: row;
   user-select: none;
   background-color: white;
-  margin: 0 10px;
+  margin: 0 5px;
   border-radius: 20px;
   align-items: center;
 }
@@ -57,8 +63,5 @@
 }
 
 @media (min-width: 540px) {
-  .productImage {
-    width: 150px;
-    height: 150px;
-  }
+
 }
