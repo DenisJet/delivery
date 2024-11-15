@@ -3,7 +3,7 @@ import ProductsList from '@/components/ProductsList/ProductsList';
 import { RootState } from '@/store/store';
 import { useSelector } from 'react-redux';
 import styles from './page.module.css';
-import { getTotalCartValue } from '@/helpers/helpers';
+import { getTotalCartValue, getTotalStoreValue } from '@/helpers/helpers';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -11,7 +11,8 @@ import Image from 'next/image';
 export default function CartPage() {
   const [activeCart, setActiveCart] = useState('');
   const cart = useSelector((state: RootState) => state.cart);
-  const totalPrice = getTotalCartValue(cart);
+  const activeStore = cart.stores.find((store) => store.name === activeCart);
+  const totalPrice = activeStore ? getTotalStoreValue(activeStore) : 0;
 
   useEffect(() => {
     if (cart.stores[0] !== undefined) setActiveCart(cart.stores[0].name);
