@@ -59,15 +59,22 @@
 }
 
 .cartTab {
-  background-color: var(--backGroundColor);
+  background-color: transparent;
   padding: 10px 20px;
+  border: 1px solid var(--backGroundColor);
   border-radius: 15px;
   cursor: pointer;
+  box-shadow: 0px 0px 2px var(--backGroundColor), 0px 2px 16px var(--backGroundColor);
 }
 
 .cartTabActive {
   background-color: var(--grayColor);
 } 
+
+.orderHeader {
+  display: flex;
+  justify-content: space-between;
+}
 
 .orderTitle {
   padding-left: 20px;

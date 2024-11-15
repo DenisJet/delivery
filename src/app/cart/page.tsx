@@ -1,23 +1,29 @@
 'use client';
 import ProductsList from '@/components/ProductsList/ProductsList';
 import { RootState } from '@/store/store';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from './page.module.css';
 import { getTotalCartValue, getTotalStoreValue } from '@/helpers/helpers';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CartProductList } from '@/components/CartProductList/CartProductList';
+import { removeStore } from '@/store/cart.slice';
 
 export default function CartPage() {
   const [activeCart, setActiveCart] = useState('');
   const cart = useSelector((state: RootState) => state.cart);
+  const dispatch = useDispatch();
   const activeStore = cart.stores.find((store) => store.name === activeCart);
   const totalPrice = activeStore ? getTotalStoreValue(activeStore) : 0;
 
   useEffect(() => {
     if (cart.stores[0] !== undefined) setActiveCart(cart.stores[0].name);
   }, [cart]);
+
+  const deleteOrder = () => {
+    dispatch(removeStore(activeCart));
+  };
 
   return (
     <div className={styles.cart}>
@@ -46,7 +52,17 @@ export default function CartPage() {
       </div>
       {cart.stores.length > 0 ? (
         <div>
-          <h2 className={styles.orderTitle}>Заказ</h2>
+          <div className={styles.orderHeader}>
+            <h2 className={styles.orderTitle}>Заказ</h2>
+            <Image
+              onClick={deleteOrder}
+              className={styles.orderTrash}
+              src='/images/trash.svg'
+              width={25}
+              height={25}
+              alt='удалить заказ'
+            />
+          </div>
           {cart.stores.map((store) => {
             if (store.cart.length <= 0) return;
             return (
