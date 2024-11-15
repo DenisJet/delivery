@@ -1,23 +1,20 @@
-import { equalTo, onValue, orderByChild, query, ref } from 'firebase/database';
-import { database } from '../firebaseConfig';
-import { IPlacePrice } from '@/interfaces/place.interface';
+import { firestore } from '../firebaseConfig';
+import { IPlace } from '@/interfaces/place.interface';
+import { doc, getDoc } from 'firebase/firestore';
 
-export const getPlaceBySlugFromFb = async (slug: string): Promise<IPlacePrice[]> => {
-  const placesRef = ref(database, process.env.NEXT_PUBLIC_PRICES);
+export const getPlaceBySlugFromFb = async (slug: string): Promise<IPlace | null> => {
+  try {
+    const docRef = doc(firestore, 'prices', slug);
+    const docSnap = await getDoc(docRef);
 
-  return new Promise((resolve, reject) => {
-    const placeQuery = query(placesRef, orderByChild('slug'), equalTo(slug));
-    onValue(
-      placeQuery,
-      (snapshot) => {
-        const place = snapshot.val();
-        if (place) {
-          resolve(Object.values(place));
-        } else {
-          resolve([]);
-        }
-      },
-      (error) => reject(error)
-    );
-  });
+    if (docSnap.exists()) {
+      return docSnap.data() as IPlace;
+    } else {
+      console.log('No such document!');
+      return null;
+    }
+  } catch (error) {
+    console.error('Error getting document:', error);
+    return null;
+  }
 };

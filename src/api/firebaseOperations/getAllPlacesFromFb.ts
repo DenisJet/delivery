@@ -1,22 +1,15 @@
-import { onValue, ref } from 'firebase/database';
-import { database } from '../firebaseConfig';
+import { firestore } from '../firebaseConfig';
 import { IPlace } from '@/interfaces/place.interface';
+import { collection, getDocs } from 'firebase/firestore';
 
 export const getAllPlacesFromFb = async (): Promise<IPlace[]> => {
-  const placesRef = ref(database, process.env.NEXT_PUBLIC_PLACES);
+  const querySnapshot = await getDocs(collection(firestore, 'places'));
+  const places: IPlace[] = [];
 
-  return new Promise((resolve, reject) => {
-    onValue(
-      placesRef,
-      (snapshot) => {
-        const places = snapshot.val();
-        if (places) {
-          resolve(Object.values(places));
-        } else {
-          resolve([]);
-        }
-      },
-      (error) => reject(error)
-    );
+  querySnapshot.forEach((doc) => {
+    const place = doc.data() as IPlace;
+    places.push(place);
   });
+
+  return places;
 };

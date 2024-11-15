@@ -1,14 +1,14 @@
-import { IPlacePrice } from '@/interfaces/place.interface';
+import { IPlace, IPlacePrice, IProduct } from '@/interfaces/place.interface';
 import styles from './TemplateOfPlacePage.module.css';
 import { categories } from '@/mockData';
 import ProductsList from '@/components/ProductsList/ProductsList';
 import Link from 'next/link';
 import Image from 'next/image';
 
-export default function TemplateOfPlacePage({ place }: { place: IPlacePrice }) {
-  const subCategories = categories.find((category) => category.name === place?.category)?.subCategories;
+export default async function TemplateOfPlacePage({ place, products }: { place: IPlace; products: IProduct[] }) {
+  if (!place || !products) return <div>Не удалось загрузить...</div>;
 
-  if (!place) return <div>Не удалось загрузить...</div>;
+  const subCategories = categories.find((category) => category.name === place?.category)?.subCategories;
 
   return (
     <div className={styles.place}>
@@ -19,14 +19,14 @@ export default function TemplateOfPlacePage({ place }: { place: IPlacePrice }) {
         <h2 className={styles.placeName}>{place.name}</h2>
       </div>
       {subCategories?.map((subCategory) => {
-        const products = place.products?.filter((product) => product.category === subCategory);
+        const sortedProducts = products?.filter((product) => product.category === subCategory);
 
         return (
-          products &&
-          products.length > 0 && (
+          sortedProducts &&
+          sortedProducts.length > 0 && (
             <div className={styles.category} key={subCategory}>
               <h3 className={styles.categoryTitle}>{subCategory}</h3>
-              <ProductsList products={products} />
+              <ProductsList products={sortedProducts} />
             </div>
           )
         );
