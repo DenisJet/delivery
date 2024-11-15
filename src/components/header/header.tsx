@@ -14,7 +14,7 @@ export default function Header() {
       <Link href='/' className={styles.logo}>
         <span>Delivery</span>Hub
       </Link>
-      <div className={styles.search}>Поиск</div>
+      <button className={styles.search}>Поиск</button>
       <Link href='/cart' className={styles.cart}>
         <Image className={styles.cartImage} src='/images/shoppingbasket.svg' alt='корзина' width={25} height={25} />
         <div className={styles.cartCount}>{totalPrice} ₽</div>
