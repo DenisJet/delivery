@@ -7,6 +7,7 @@ import { getTotalCartValue, getTotalStoreValue } from '@/helpers/helpers';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { CartProductList } from '@/components/CartProductList/CartProductList';
 
 export default function CartPage() {
   const [activeCart, setActiveCart] = useState('');
@@ -22,7 +23,7 @@ export default function CartPage() {
     <div className={styles.cart}>
       <div className={styles.header}>
         <Link className={styles.link} href='/'>
-          <Image src='/images/arrowback.svg' width={30} height={30} alt='назад' />
+          <Image src='/images/arrowback.svg' width={25} height={25} alt='назад' />
         </Link>
         <h2 className={styles.cartTitle}>Корзина</h2>
       </div>
@@ -44,17 +45,20 @@ export default function CartPage() {
           : ''}
       </div>
       {cart.stores.length > 0 ? (
-        cart.stores.map((store) => {
-          if (store.cart.length <= 0) return;
-          return (
-            <div
-              key={store.name}
-              className={activeCart === store.name ? `${styles.storeActive} ${styles.store}` : `${styles.store}`}
-            >
-              <ProductsList products={store.cart.map((item) => item.product)} />
-            </div>
-          );
-        })
+        <div>
+          <h2 className={styles.orderTitle}>Заказ</h2>
+          {cart.stores.map((store) => {
+            if (store.cart.length <= 0) return;
+            return (
+              <div
+                key={store.name}
+                className={activeCart === store.name ? `${styles.storeActive} ${styles.store}` : `${styles.store}`}
+              >
+                <CartProductList products={store.cart.map((item) => item.product)} />
+              </div>
+            );
+          })}
+        </div>
       ) : (
         <div className={styles.storeName}>Корзина пуста</div>
       )}

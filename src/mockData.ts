@@ -233,6 +233,7 @@ export const prices = [
         imageUrl: 'https://loremflickr.com/320/240/',
         name: 'Батон',
         price: '56',
+        oldPrice: '75',
         quantity: '400г',
         storeName: 'Магнит',
       },
@@ -240,8 +241,11 @@ export const prices = [
         category: 'Хлеб, выпечка',
         name: 'Хлеб',
         price: '56',
+        oldPrice: '75',
         quantity: '400г',
         storeName: 'Магнит',
+        description:
+          'По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых людей недоумение при попытках прочитать рыбу текст.',
       },
       {
         category: 'Хлеб, выпечка',

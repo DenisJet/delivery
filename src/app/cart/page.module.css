@@ -1,14 +1,25 @@
 .cart {
-  padding-top: 20px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
 }
 
 .header {
   display: flex;
-  gap: 10px;
   align-items: center;
   margin-bottom: 15px;
+}
+
+.cartTitle {
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  margin-left: -25px;
+  width: 100%;
+}
+
+.link {
+  display: inline-block;
 }
 
 .store {
@@ -31,7 +42,8 @@
   padding: 15px 30px;
   font-size: 16px;
   border-radius: 20px;
-  background-color: var(--grayColor);
+  color: white;
+  background-color: var(--darkColor);
   margin-left: auto;
   margin-right: auto;
   width: 300px;
@@ -43,15 +55,21 @@
   gap: 10px;
   margin-bottom: 20px;
   user-select: none;
+  padding-left: 10px;
 }
 
 .cartTab {
   background-color: var(--backGroundColor);
   padding: 10px 20px;
-  border-radius: 20px;
+  border-radius: 15px;
   cursor: pointer;
 }
 
 .cartTabActive {
   background-color: var(--grayColor);
 } 
+
+.orderTitle {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}

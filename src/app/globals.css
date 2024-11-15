@@ -1,7 +1,9 @@
 :root {
   --primaryColor: #cf0953;
   --grayColor: #D2D0CC;
+  --darkColor: #302F2D;
   --backGroundColor: rgb(245, 244, 242);
+  --orangeColor: #FA6A3C;
 }
 
 html,
