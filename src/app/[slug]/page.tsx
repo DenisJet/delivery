@@ -2,7 +2,7 @@ import { getPlaceBySlugFromFb } from '@/api/firebaseOperations/getPlaceBySlugFro
 import { getProductsFromFb } from '@/api/firebaseOperations/getProductsFromFb';
 import { IPlace, IPlacePrice, IProduct } from '@/interfaces/place.interface';
 import { allPlaces, prices } from '@/mockData';
-import TemplateOfPlacePage from '@/pages/TemplateOfPlacePage/TemplateOfPlacePage';
+import TemplateOfPlacePage from '@/pagesTemplates/TemplateOfPlacePage/TemplateOfPlacePage';
 
 export default async function Page({ params }: { params: { slug: string } }) {
   // const placeData = (await getPlaceBySlugFromFb(params.slug)) as IPlace;
