@@ -13,6 +13,7 @@ import ProductCard from '../ProductCard/ProductCard';
 
 interface ProductsListProps {
   products: IProduct[];
+  storeSlug: string;
 }
 
 export const useSliderManagement = (products: IProduct[]) => {
@@ -58,7 +59,7 @@ export const useSliderManagement = (products: IProduct[]) => {
   return { initialized, prevRef, nextRef, bindRefsToNavigation };
 };
 
-export default function ProductsList({ products }: ProductsListProps) {
+export default function ProductsList({ products, storeSlug }: ProductsListProps) {
   const { initialized, prevRef, nextRef, bindRefsToNavigation } = useSliderManagement(products);
 
   return (
@@ -85,7 +86,7 @@ export default function ProductsList({ products }: ProductsListProps) {
               {products.map((product) => {
                 return (
                   <SwiperSlide key={product.name} className={styles['swiper-slide']}>
-                    <ProductCard product={product} />
+                    <ProductCard product={product} storeSlug={storeSlug} />
                   </SwiperSlide>
                 );
               })}

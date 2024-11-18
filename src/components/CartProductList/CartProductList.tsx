@@ -7,16 +7,17 @@ import { addItem, removeItem } from '@/store/cart.slice';
 import { imageLoader } from '@/helpers/helpers';
 
 interface ProductsListProps {
+  storeSlug: string;
   products: IProduct[];
 }
 
-export const CartProductList = ({ products }: ProductsListProps) => {
+export const CartProductList = ({ products, storeSlug }: ProductsListProps) => {
   const DEFAULT_IMAGE_URL = '/images/placeholder.png';
   const cart = useSelector((state: RootState) => state.cart);
   const dispatch = useDispatch();
 
   const handleAddItem = (product: IProduct) => {
-    dispatch(addItem({ product }));
+    dispatch(addItem({ product, storeSlug }));
   };
 
   const handleRemoveItem = (product: IProduct) => {

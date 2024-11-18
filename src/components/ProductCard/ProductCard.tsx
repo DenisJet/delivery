@@ -6,7 +6,7 @@ import { RootState } from '@/store/store';
 import { addItem, removeItem } from '@/store/cart.slice';
 import { imageLoader } from '@/helpers/helpers';
 
-export default function ProductCard({ product }: { product: IProduct }) {
+export default function ProductCard({ product, storeSlug }: { product: IProduct; storeSlug: string }) {
   const cart = useSelector((state: RootState) => state.cart);
   const storeName = product.storeName;
   const count = cart.stores
@@ -17,7 +17,7 @@ export default function ProductCard({ product }: { product: IProduct }) {
   const DEFAULT_IMAGE_URL = '/images/placeholder.png';
 
   const handleAddItem = () => {
-    dispatch(addItem({ product }));
+    dispatch(addItem({ product, storeSlug }));
   };
 
   const handleRemoveItem = () => {

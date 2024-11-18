@@ -26,7 +26,7 @@ export default async function TemplateOfPlacePage({ place, products }: { place: 
           sortedProducts.length > 0 && (
             <div className={styles.category} key={subCategory}>
               <h3 className={styles.categoryTitle}>{subCategory}</h3>
-              <ProductsList products={sortedProducts} />
+              <ProductsList products={sortedProducts} storeSlug={place.slug} />
             </div>
           )
         );

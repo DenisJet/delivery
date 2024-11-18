@@ -2,6 +2,7 @@ import { IProduct } from '@/interfaces/place.interface';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface CartStore {
+  storeSlug: string;
   name: string;
   cart: { product: IProduct; count: number }[];
 }
@@ -24,11 +25,12 @@ export const cartSlice = createSlice({
     removeStore: (state, action: PayloadAction<string>) => {
       state.stores = state.stores.filter((store) => store.name !== action.payload);
     },
-    addItem: (state, action: PayloadAction<{ product: IProduct }>) => {
+    addItem: (state, action: PayloadAction<{ product: IProduct; storeSlug: string }>) => {
       const store = state.stores.find((store) => store.name === action.payload.product.storeName);
 
       if (!store) {
         state.stores.push({
+          storeSlug: action.payload.storeSlug,
           name: action.payload.product.storeName,
           cart: [{ product: action.payload.product, count: 1 }],
         });

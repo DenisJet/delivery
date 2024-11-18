@@ -1,9 +1,8 @@
 'use client';
-import ProductsList from '@/components/ProductsList/ProductsList';
 import { RootState } from '@/store/store';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './page.module.css';
-import { getTotalCartValue, getTotalStoreValue } from '@/helpers/helpers';
+import { getTotalStoreValue } from '@/helpers/helpers';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -70,7 +69,10 @@ export default function CartPage() {
                 key={store.name}
                 className={activeCart === store.name ? `${styles.storeActive} ${styles.store}` : `${styles.store}`}
               >
-                <CartProductList products={store.cart.map((item) => item.product)} />
+                <CartProductList
+                  products={store.cart.map((item) => item.product)}
+                  storeSlug={activeStore ? activeStore.storeSlug : ''}
+                />
               </div>
             );
           })}
@@ -78,6 +80,9 @@ export default function CartPage() {
       ) : (
         <div className={styles.storeName}>Корзина пуста</div>
       )}
+      <Link className={styles.storeLink} href={activeStore ? activeStore.storeSlug : ''}>
+        Перейти в магазин
+      </Link>
       {cart.stores.length > 0 && (
         <button type='button' className={styles.cartButton}>
           Перейти к оплате {totalPrice} ₽
