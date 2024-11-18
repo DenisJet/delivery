@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
 import { addItem, removeItem } from '@/store/cart.slice';
+import { imageLoader } from '@/helpers/helpers';
 
 interface ProductsListProps {
   products: IProduct[];
@@ -36,6 +37,7 @@ export const CartProductList = ({ products }: ProductsListProps) => {
           return (
             <div className={styles.productItem}>
               <Image
+                loader={imageLoader}
                 className={styles.productImage}
                 src={product.imageUrl ? product.imageUrl : DEFAULT_IMAGE_URL}
                 alt='товар'

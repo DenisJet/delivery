@@ -4,6 +4,7 @@ import { IProduct } from '@/interfaces/place.interface';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
 import { addItem, removeItem } from '@/store/cart.slice';
+import { imageLoader } from '@/helpers/helpers';
 
 export default function ProductCard({ product }: { product: IProduct }) {
   const cart = useSelector((state: RootState) => state.cart);
@@ -26,6 +27,7 @@ export default function ProductCard({ product }: { product: IProduct }) {
   return (
     <div className={styles.product}>
       <Image
+        loader={imageLoader}
         width={75}
         height={75}
         src={product.imageUrl || DEFAULT_IMAGE_URL}

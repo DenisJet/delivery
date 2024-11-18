@@ -6,7 +6,7 @@ import { IPlace } from '@/interfaces/place.interface';
 import { allPlaces } from '../mockData';
 
 export default async function HomePage() {
-  // const allPlaces = await getAllPlacesFromFb();
+  const allPlaces = await getAllPlacesFromFb();
 
   return (
     <div className={styles.home}>
