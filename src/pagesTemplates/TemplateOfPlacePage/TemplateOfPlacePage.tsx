@@ -14,7 +14,7 @@ export default async function TemplateOfPlacePage({ place, products }: { place: 
     <div className={styles.place}>
       <div className={styles.header}>
         <Link className={styles.link} href='/'>
-          <Image src='/images/arrowback.svg' width={30} height={30} alt='назад' />
+          <Image src='/images/arrowback.svg' width={25} height={25} alt='назад' />
         </Link>
         <h2 className={styles.placeName}>{place.name}</h2>
       </div>

@@ -16,11 +16,12 @@ export const categories = [
       'Для животных',
       'Гигиена, уборка',
       'Разное',
+      'Свинина',
     ],
   },
   {
     name: 'Хоз. магазины',
-    subCategories: [],
+    subCategories: ['Мыло'],
   },
   {
     name: 'Рестораны',

@@ -2,6 +2,14 @@
   position: relative;
 }
 
+.swiper-slide:first-child {
+  margin-left: 10px;
+}
+
+.swiper-slide:last-child {
+  margin-right: 10px;
+}
+
 .slider__button-prev,
 .slider__button-next {
   display: none;
