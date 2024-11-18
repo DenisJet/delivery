@@ -34,7 +34,9 @@ export default function ProductCard({ product }: { product: IProduct }) {
         alt={product.name}
         className={styles.productImage}
       />
-      <p className={styles.productPrice}>{product.price} p</p>
+      <p className={styles.productPrice}>
+        <span>{product.price} ₽</span> <del>{product.oldPrice ? `${product.oldPrice} ₽` : ''}</del>
+      </p>
       <p className={styles.productName}>{product.name}</p>
       <p className={styles.productQuantity}>{product.quantity}</p>
       <div className={styles.productButtons}>

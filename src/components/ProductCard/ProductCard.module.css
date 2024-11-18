@@ -16,8 +16,17 @@
 
 .productPrice {
   font-weight: 500;
-  font-size: 18px;
+  font-size: 14px;
   padding: 0 5px;
+}
+
+.productPrice span {
+  font-size: 18px;
+  color: var(--orangeColor);
+}
+
+.productPrice del {
+  color: var(--grayColor);
 }
 
 .productQuantity {
