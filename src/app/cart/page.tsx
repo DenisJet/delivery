@@ -8,11 +8,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { CartProductList } from '@/components/CartProductList/CartProductList';
 import { removeStore } from '@/store/cart.slice';
+import Modal from '@/components/Modal/Modal';
 
 export default function CartPage() {
   const [activeCart, setActiveCart] = useState('');
-  const cart = useSelector((state: RootState) => state.cart);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
   const dispatch = useDispatch();
+
+  const cart = useSelector((state: RootState) => state.cart);
   const activeStore = cart.stores.find((store) => store.name === activeCart);
   const totalPrice = activeStore ? getTotalStoreValue(activeStore) : 0;
 
@@ -21,6 +25,7 @@ export default function CartPage() {
   }, [cart]);
 
   const deleteOrder = () => {
+    setModalIsOpen(false);
     dispatch(removeStore(activeCart));
   };
 
@@ -54,7 +59,7 @@ export default function CartPage() {
           <div className={styles.orderHeader}>
             <h2 className={styles.orderTitle}>Заказ</h2>
             <Image
-              onClick={deleteOrder}
+              onClick={() => setModalIsOpen(true)}
               className={styles.orderTrash}
               src='/images/trash.svg'
               width={25}
@@ -89,6 +94,19 @@ export default function CartPage() {
             Перейти к оплате {totalPrice} ₽
           </button>
         </>
+      )}
+      {modalIsOpen && (
+        <Modal onClose={() => setModalIsOpen(false)} shouldDisableScroll>
+          <div>
+            <p>Удалить заказ?</p>
+            <button type='button' onClick={() => setModalIsOpen(false)}>
+              Нет
+            </button>
+            <button type='button' onClick={deleteOrder}>
+              Да
+            </button>
+          </div>
+        </Modal>
       )}
     </div>
   );
