@@ -80,13 +80,15 @@ export default function CartPage() {
       ) : (
         <div className={styles.storeName}>Корзина пуста</div>
       )}
-      <Link className={styles.storeLink} href={activeStore ? activeStore.storeSlug : ''}>
-        Перейти в магазин
-      </Link>
       {cart.stores.length > 0 && (
-        <button type='button' className={styles.cartButton}>
-          Перейти к оплате {totalPrice} ₽
-        </button>
+        <>
+          <Link className={styles.storeLink} href={activeStore ? activeStore.storeSlug : ''}>
+            Перейти в магазин
+          </Link>
+          <button type='button' className={styles.cartButton}>
+            Перейти к оплате {totalPrice} ₽
+          </button>
+        </>
       )}
     </div>
   );
