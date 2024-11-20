@@ -87,7 +87,7 @@ export default function CartPage() {
       )}
       {cart.stores.length > 0 && (
         <>
-          <Link className={styles.storeLink} href={activeStore ? activeStore.storeSlug : ''}>
+          <Link className={styles.storeLink} href={activeStore ? `/${activeStore.storeSlug}/` : ''}>
             Перейти в магазин
           </Link>
           <button type='button' className={styles.cartButton}>
