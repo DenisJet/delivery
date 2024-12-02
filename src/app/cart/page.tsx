@@ -9,6 +9,7 @@ import Image from 'next/image';
 import { CartProductList } from '@/components/CartProductList/CartProductList';
 import { removeStore } from '@/store/cart.slice';
 import Modal from '@/components/Modal/Modal';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 export default function CartPage() {
   const [activeCart, setActiveCart] = useState('');
@@ -38,21 +39,24 @@ export default function CartPage() {
         <h2 className={styles.cartTitle}>Корзина</h2>
       </div>
       <div className={styles.cartTabs}>
-        {cart.stores.length > 0
-          ? cart.stores.map((store) => {
-              return (
-                <h3
-                  key={store.name}
-                  onClick={() => setActiveCart(store.name)}
-                  className={
-                    activeCart === store.name ? `${styles.cartTabActive} ${styles.cartTab}` : `${styles.cartTab}`
-                  }
-                >
-                  {store.name}
-                </h3>
-              );
-            })
-          : ''}
+        <Swiper className={styles['swiper']} slidesPerView={'auto'} spaceBetween={10}>
+          {cart.stores.length > 0
+            ? cart.stores.map((store) => {
+                return (
+                  <SwiperSlide key={store.name} className={styles['swiper-slide']}>
+                    <h3
+                      onClick={() => setActiveCart(store.name)}
+                      className={
+                        activeCart === store.name ? `${styles.cartTabActive} ${styles.cartTab}` : `${styles.cartTab}`
+                      }
+                    >
+                      {store.name}
+                    </h3>
+                  </SwiperSlide>
+                );
+              })
+            : ''}
+        </Swiper>
       </div>
       {cart.stores.length > 0 ? (
         <div>

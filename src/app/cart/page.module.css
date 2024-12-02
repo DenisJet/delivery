@@ -40,6 +40,10 @@
   margin-bottom: 10px;
 }
 
+.swiper-slide { 
+  width: fit-content!important;
+}
+
 .cartButton {
   border: none;
   cursor: pointer;
