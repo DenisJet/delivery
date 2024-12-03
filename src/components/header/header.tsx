@@ -3,7 +3,7 @@ import styles from './Header.module.css';
 import Image from 'next/image';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
-import { getTotalCartValue, getTotalProductCount } from '@/helpers/helpers';
+import { getTotalCartValue, imageLoader } from '@/helpers/helpers';
 
 export default function Header() {
   const cart = useSelector((state: RootState) => state.cart);
@@ -12,7 +12,7 @@ export default function Header() {
   return (
     <div className={styles.header}>
       <Link href='/' className={styles.logo}>
-        <span>Delivery</span>
+        <Image src='/images/logo.png' width={90} height={40} alt='logo' loader={imageLoader} />
       </Link>
       <button className={styles.search}>Поиск</button>
       <Link href='/cart' className={styles.cart}>

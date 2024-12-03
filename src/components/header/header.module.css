@@ -55,6 +55,11 @@
     font-size: 20px;
   }
 
+  .logo img {
+    width: 150px;
+    height: 65px;
+  }
+
   .cartCount {
     font-size: 18px;
   }
