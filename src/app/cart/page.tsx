@@ -10,6 +10,7 @@ import { CartProductList } from '@/components/CartProductList/CartProductList';
 import { removeStore } from '@/store/cart.slice';
 import Modal from '@/components/Modal/Modal';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import Button from '@/components/Button/Button';
 
 export default function CartPage() {
   const [activeCart, setActiveCart] = useState('');
@@ -101,14 +102,14 @@ export default function CartPage() {
       )}
       {modalIsOpen && (
         <Modal onClose={() => setModalIsOpen(false)} shouldDisableScroll>
-          <div>
-            <p>Удалить заказ?</p>
-            <button type='button' onClick={() => setModalIsOpen(false)}>
+          <p className={styles.modalTitle}>Удалить заказ?</p>
+          <div className={styles.modalButtonsContainer}>
+            <Button className={styles.modalButtonNo} onClick={() => setModalIsOpen(false)}>
               Нет
-            </button>
-            <button type='button' onClick={deleteOrder}>
+            </Button>
+            <Button className={styles.modalButtonYes} onClick={deleteOrder}>
               Да
-            </button>
+            </Button>
           </div>
         </Modal>
       )}

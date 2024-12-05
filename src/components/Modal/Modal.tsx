@@ -2,6 +2,7 @@ import { ReactNode, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import style from './Modal.module.css';
 import { useDisableBodyScroll } from '@/hooks/useDisableBodyScroll';
+import Image from 'next/image';
 //import { clsx } from '@/shared/lib/clsx';
 
 interface ModalProps {
@@ -35,7 +36,7 @@ const Modal = ({ children, onClose, backdropClassName, modalClassName, shouldDis
     <div className={`${style.backdrop} ${backdropClassName}`} onMouseDown={(evt) => handleBackdropClick(evt)}>
       <div className={`${style.modal} ${modalClassName}`}>
         <button className={style.close} type='button' onClick={onClose}>
-          Close
+          <Image src='/images/close-icon.svg' alt='close' width={14} height={14} />
         </button>
         {children}
       </div>

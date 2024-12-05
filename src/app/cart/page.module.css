@@ -58,6 +58,10 @@
   user-select: none;
 }
 
+.cartButton:hover {
+  opacity: 0.7;
+}
+
 .storeLink {
   cursor: pointer;
   padding: 15px 30px;
@@ -70,6 +74,10 @@
   width: 300px;
   user-select: none;
   margin-bottom: 20px;
+}
+
+.storeLink:hover {
+  opacity: 0.7;
 }
 
 .cartTabs {
@@ -105,4 +113,28 @@
 
 .orderTrash {
   cursor: pointer;
+}
+
+.modalTitle {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.modalButtonsContainer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.modalButtonYes {
+  background-color: var(--darkColor);
+  color: white;
+  width: 100px;
+}
+
+.modalButtonNo {
+  background-color: var(--grayColor);
+  color: var(--darkColor);
+  width: 100px;
 }
