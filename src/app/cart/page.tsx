@@ -60,7 +60,7 @@ export default function CartPage() {
         </Swiper>
       </div>
       {cart.stores.length > 0 ? (
-        <div>
+        <div className={styles.order}>
           <div className={styles.orderHeader}>
             <h2 className={styles.orderTitle}>Заказ</h2>
             <Image

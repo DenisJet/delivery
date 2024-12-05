@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import PlacesList from '@/components/PlacesList/PlacesList';
-import styles from '../page.module.css';
+import styles from './page.module.css';
 import { categories } from '@/mockData';
 import { getAllPlacesFromFb } from '@/api/firebaseOperations/getAllPlacesFromFb';
 import { IPlace } from '@/interfaces/place.interface';

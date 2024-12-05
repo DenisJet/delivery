@@ -1,5 +1,6 @@
 .cart {
-  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   display: flex;
   flex-direction: column;
   max-width: 700px;
@@ -10,6 +11,8 @@
 .header {
   display: flex;
   align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
   margin-bottom: 15px;
 }
 
@@ -38,6 +41,11 @@
 .storeName {
   padding-left: 10px;
   margin-bottom: 10px;
+}
+
+.order {
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .swiper-slide { 
@@ -85,7 +93,6 @@
   gap: 10px;
   margin-bottom: 20px;
   user-select: none;
-  padding-left: 10px;
 }
 
 .cartTab {
