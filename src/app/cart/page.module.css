@@ -145,3 +145,11 @@
   color: var(--darkColor);
   width: 100px;
 }
+
+.swiper-slide:first-child {
+  margin-left: 10px;
+}
+
+.swiper-slide:last-child {
+  margin-right: 10px;
+}
